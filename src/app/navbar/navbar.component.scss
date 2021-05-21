@@ -7,4 +7,31 @@ nav{
   padding:5px 10px;
   box-sizing: border-box;
   border-bottom: 3px solid $site-color-v2 ;
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      padding: 5px 16px;
+      z-index: 1;
+      color: black;
+      right: 0;
+      div{
+        cursor: pointer;
+        padding: 5px 10px;
+        &:hover{
+          background: $site-color-v2;
+          color: white;
+        }
+      }
+    }
+    &:hover .dropdown-content {
+      display: block;
+    }
+  }
 }
+
