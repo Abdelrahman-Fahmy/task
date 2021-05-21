@@ -5,3 +5,10 @@ footer{
   bottom: 0;
   width: calc( 100% - #{$sidebar-width} );
 }
+
+
+@media(max-width:$media-screen){
+  footer{
+    width: calc( 100% - #{$mobile-sidebar-width} );
+  }
+}
