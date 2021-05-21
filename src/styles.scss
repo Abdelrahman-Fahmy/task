@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+html{
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+
+.ng-invalid.ng-touched:not(form){
+  border: 1px solid red;
+}
+
+
+.height-fluid{
+  max-height: 100%;
+  width: auto;
+}

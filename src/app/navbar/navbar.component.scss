@@ -1,0 +1,10 @@
+@import "../../variables.scss";
+
+nav{
+  background: #007bff;
+  height: $nav-height;
+  color: white;
+  padding:5px 10px;
+  box-sizing: border-box;
+  border-bottom: 3px solid $site-color-v2 ;
+}

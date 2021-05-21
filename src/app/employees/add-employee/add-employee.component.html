@@ -1,0 +1,79 @@
+<div class="row">
+  <div class="col-md-8">
+    <form [formGroup]="form" (ngSubmit)="save()">
+      <div class="row">
+        <div class="col-md-12" *ngIf="alert">
+          <div class="alert alert-success">
+            <div class="text-success">
+              employee added successfully.
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label class="mb-1"> emplyee name *</label>
+            <input type="text" formControlName="name" class="form-control">
+            <div class="mt-1 text-danger" *ngIf="form.controls.name.touched && form.controls.name.errors?.required">
+              required
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label class="mb-1"> department *</label>
+            <select formControlName="department" class="form-control">
+              <option *ngFor="let department of departments" [value]="department">{{department}}</option>
+            </select>
+            <div class="mt-1 text-danger" *ngIf="form.controls.department.touched && form.controls.department.errors?.required">
+              required
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label class="mb-1"> emplyee code </label>
+            <input type="number" formControlName="code" class="form-control">
+            <div class="mt-1 text-danger" *ngIf="form.controls.code.touched && form.controls.code.errors?.required">
+              required
+            </div>
+            <div class="mt-1 text-danger" *ngIf="form.controls.code.touched && form.controls.code.errors?.postive">
+              must be postive number
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label class="mb-1"> birthday</label>
+            <input type="date" formControlName="birthday" class="form-control">
+            <div class="mt-1 text-danger" *ngIf="form.controls.birthday.touched && form.controls.birthday.errors?.required">
+              required
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3 ">
+            <label class="mb-1 mr-3"> gender</label>
+            <span class="form-check d-inline-block mr-3">
+              <input class="form-check-input" type="radio" name="gender" id="male" value="male" formControlName="gender">
+              <label class="form-check-label" for="male">
+                male
+              </label>
+            </span>
+            <span class="form-check d-inline-block">
+              <input class="form-check-input" type="radio" name="gender" id="female" value="female" formControlName="gender">
+              <label class="form-check-label" for="female">
+                female
+              </label>
+            </span>
+            <div class="mt-1 text-danger" *ngIf="form.controls.gender.touched && form.controls.gender.errors?.required">
+              required
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 text-right">
+          <button type="submit" class="btn btn-sm btn-primary px-4">add</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

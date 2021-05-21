@@ -1,0 +1,32 @@
+.table{
+  font-size: 14px;
+  color: #000000CC;
+  th,td,tr,thead{
+    border: none !important;
+  }
+  border-radius: 0px 0px 4px 4px;
+  border-collapse: unset;
+  thead{
+    tr{
+      background:#F9FAFB !important;
+    }
+     >tr{
+      background: grey !important;
+      color: white;
+    }
+  }
+  tbody tr:nth-of-type(2n+1){
+    background: white;
+  }
+  tbody tr:nth-of-type(2n){
+    background:#F9FAFB;
+  }
+  tbody{
+    tr{
+      border-top: 1px solid #E2E2E3 !important;
+    }
+  }
+  td,th{
+    vertical-align: middle !important;
+  }
+}

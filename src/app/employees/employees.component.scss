@@ -1,0 +1,17 @@
+@import "../../variables.scss";
+
+.tabs{
+  a{
+    text-decoration: none;
+    padding: 5px 15px;
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+    background: grey;
+  }
+  a.active{
+    color: $site-color-v2;
+    border: 3px solid $site-color-v2;
+    background: white;
+  }
+}

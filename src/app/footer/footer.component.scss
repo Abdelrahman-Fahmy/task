@@ -1,0 +1,7 @@
+@import "../../variables.scss";
+
+footer{
+  position: fixed;
+  bottom: 0;
+  width: calc( 100% - #{$sidebar-width} );
+}

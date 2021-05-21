@@ -1,0 +1,85 @@
+
+  <div class="row">
+    <div class="col-md-12">
+      <form [formGroup]="form" (ngSubmit)="search()">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label class="mb-1"> emplyee name *</label>
+              <input type="text" formControlName="name" class="form-control">
+              <div class="mt-1 text-danger" *ngIf="form.controls.name.touched && form.controls.name.errors?.required">
+                required
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label class="mb-1"> department *</label>
+              <select formControlName="department" class="form-control">
+                <option *ngFor="let department of departments" [value]="department">{{department}}</option>
+              </select>
+              <div class="mt-1 text-danger" *ngIf="form.controls.department.touched && form.controls.department.errors?.required">
+                required
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 text-right ">
+            <button *ngIf="totalList !== employees" type="button" class="btn btn-sm btn-secondary px-4 mr-3" (click)="clearSearch()">clear</button>
+            <button type="submit" class="btn btn-sm btn-primary px-4">add</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table class="table ">
+          <thead>
+            <tr>
+              <th scope="col">
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" id="checkAll" class="custom-control-input"
+                  (change)="toggleCheckAll($event.target.checked)" #checkAllEmployee>
+                  <label class="custom-control-label" for="checkAll"></label>
+                </div>
+              </th>
+              <th scope="col" >name</th>
+              <th scope="col" >department</th>
+              <th scope="col" >code</th>
+              <th scope="col" >birthday</th>
+              <th scope="col" >gender</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let employee of employees;let i=index">
+              <th scope="row">
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" [id]="'index_'+i" class="custom-control-input"
+                  (change)="onCheckEmployee($event.target.checked,employee)" #checkEmployee>
+                  <label class="custom-control-label" [for]="'index_'+i"></label>
+                </div>
+              </th>
+              <td>
+                {{employee.name}}
+              </td>
+              <td>
+                {{employee.department}}
+              </td>
+              <td>
+                {{employee.code}}
+              </td>
+              <td>
+                {{employee.birthday}}
+              </td>
+              <td>
+                {{employee.gender}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-md-12" *ngFor="let employee of checkedEmployees">
+      {{employee.name}} | {{employee.department}} | {{employee.code}} | {{employee.birthday}} | {{employee.gender}}
+    </div>
+  </div>
+
